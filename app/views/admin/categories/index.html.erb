@@ -1,0 +1,37 @@
+<%= form_for @category, :url => @url, :method => @method do |f|%>
+	<% if @category.errors.any? %>
+    <div class="alert alert-warning" role="alert">
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </div>
+	<% end %>
+	
+	<div class="form-group">
+		<%= f.label :name, "Name:" %>
+		<%= f.text_field :name, :class => "form-control" %>
+	</div>
+
+	<%= f.submit @submit_name, :class => "btn btn-primary" %>
+<% end %>
+
+
+<hr style="height:2px;border:none;color:#333;background-color:#333;" />
+<table class="table table-hover">
+	<tr>
+		<th>Name</th>
+		<th></th>
+	</tr>
+	<% @categories.each do |category| %>
+		
+		<tr>
+			<td><%= category.name %></td>
+			<td>
+				<%= link_to "", admin_categories_path( :id => category, :page => params[:page]), :class => "btn btn-primary glyphicon glyphicon-pencil" %>
+				<%= link_to "", admin_category_path( category , :page => params[:page]), :method => :delete, :class => "btn btn-danger glyphicon glyphicon glyphicon-trash" %>
+			</td>
+		</tr>
+	
+	<% end %>
+</table>
+<%= paginate @categories %>
