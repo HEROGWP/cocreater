@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  layout :set_layout
 
   private
 
@@ -12,5 +13,9 @@ class ApplicationController < ActionController::Base
 		else
 			page = count / 5 + 1
 		end
+	end
+
+	def set_layout
+		(user_signed_in? && current_user.admin?) ? "admin" : "application"
 	end
 end
