@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103030658) do
+ActiveRecord::Schema.define(version: 20161103110820) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
@@ -32,7 +32,10 @@ ActiveRecord::Schema.define(version: 20161103030658) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.string   "fb_uid"
+    t.string   "fb_token"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["fb_uid"], name: "index_users_on_fb_uid", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["role"], name: "index_users_on_role", using: :btree
   end
