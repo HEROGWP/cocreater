@@ -1,0 +1,21 @@
+<h2>使用者列表</h2>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>School</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= link_to "#{user.name}", user_path(user) %></td>
+				<td><%= user.school %></td>
+				<td><%= truncate(user.description, :length => 100) %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate @users %>
