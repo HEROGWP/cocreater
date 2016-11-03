@@ -1,4 +1,4 @@
-<%= form_for @category, :url => @url, :method => @method do |f|%>
+<%= form_for @category, :url => @url, :method => @method, html: { multipart: true } do |f|%>
 	<% if @category.errors.any? %>
     <div class="alert alert-warning" role="alert">
       <% @category.errors.full_messages.each do |msg| %>
@@ -12,6 +12,10 @@
 		<%= f.text_field :name, :class => "form-control" %>
 	</div>
 
+	<div class="form-group">
+		<%= f.file_field :logo %>
+	</div>
+
 	<%= f.submit @submit_name, :class => "btn btn-primary" %>
 <% end %>
 
@@ -19,12 +23,13 @@
 <hr style="height:2px;border:none;color:#333;background-color:#333;" />
 <table class="table table-hover">
 	<tr>
+		<th>Logo</th>
 		<th>Name</th>
 		<th></th>
 	</tr>
 	<% @categories.each do |category| %>
-		
 		<tr>
+			<td><%= image_tag category.logo.url(:thumb)%></td>
 			<td><%= category.name %></td>
 			<td>
 				<%= link_to "", admin_categories_path( :id => category, :page => params[:page]), :class => "btn btn-primary glyphicon glyphicon-pencil" %>
