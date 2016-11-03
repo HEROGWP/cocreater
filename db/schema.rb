@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 20161103120246) do
     t.string   "fb_id"
     t.string   "line_id"
     t.text     "description",            limit: 65535
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["fb_uid"], name: "index_users_on_fb_uid", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

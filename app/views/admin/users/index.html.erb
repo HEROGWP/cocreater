@@ -3,6 +3,7 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
+			<th>Logo</th>
 			<th>Email</th>
 			<th>Author</th>
 			<th></th>
@@ -11,6 +12,7 @@
 	<tbody>
 		<% @users.each do |user| %>
 			<tr>
+				<td><%= image_tag user.logo.url(:thumb)%></td>
 				<td><%= user.email %></td>
 				<td><%= user.role %></td>
 				<td>
