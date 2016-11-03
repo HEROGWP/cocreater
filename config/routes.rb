@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 	
 	namespace :admin do
   	resources :categories, only: [:index, :create, :update, :destroy]
+  	resources :users, only: [:index] do
+      member do
+  		  post :role_change
+      end
+  	end
 	end
 
 end

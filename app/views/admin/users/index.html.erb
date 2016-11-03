@@ -1,0 +1,29 @@
+<h1>使用者權限管理</h1>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Email</th>
+			<th>Author</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.email %></td>
+				<td><%= user.role %></td>
+				<td>
+					<% unless current_user == user %>
+						<% if user.role == "user" %>
+							<%= link_to "", role_change_admin_user_path(user, :role => "admin"), :method => :post, :class => "btn btn-danger glyphicon glyphicon-remove"  %>
+						<% else %>
+							<%= link_to "", role_change_admin_user_path(user, :role => "user"), :method => :post, :class => "btn btn-success glyphicon glyphicon-ok"  %>
+						<% end %>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= paginate @users %>
