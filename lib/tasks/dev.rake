@@ -7,6 +7,10 @@ desc "重建一些假資料"
     User.create(email: "pp820819@gmail.com", password: "12345678", role: "admin", name: "pp820819", phone: "0912345678", school: "alpha camp")
     User.create(email: "iamcute@gmail.com", password: "12345678", name: "iamcute", phone: "0912345678", school: "alpha camp")
   	
+    100.times do
+      @category = Category.create(name: Faker::Beer.style)
+      puts "create category name is #{@category.name}"
+    end
 
   	50.times do
     	@user = User.create(
@@ -17,12 +21,21 @@ desc "重建一些假資料"
     						school: Faker::Educator.university, 
     						description: Faker::Lorem.paragraph
     					)
-    	puts "create user id is #{@user.name}"
+    	puts "create user name is #{@user.name}"
     end
 
-  	100.times do
-    	@category = Category.create(name: Faker::Beer.style)
-    	puts "create category id is #{@category.name}"
+    50.times do
+      status = ["募集中", "進行中", "已完成"].sample
+      @project = Project.create(
+                  name: Faker::Pokemon.name,
+                  location: Faker::Pokemon.location,
+                  school: Faker::Educator.university,
+                  description: Faker::Lorem.paragraph,
+                  status: status
+                 )
+      puts "create project name is #{@project.name}"
+
     end
+
   end
 end
