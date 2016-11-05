@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(project_params)
 		if @project.save
+			@project.create_pictures(params[:photos])
 			flash[:notice] = "success to create"
 			set_pagination
 			redirect_to projects_path
@@ -34,6 +35,8 @@ class ProjectsController < ApplicationController
 
 	def update
 		if @project.update(project_params)
+			@project.destroy_pictures(params[:photos])
+			@project.create_pictures(params[:photos])
 			flash[:notice] = "success to update"
 			set_pagination
 			redirect_to projects_path
@@ -60,7 +63,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def set_projects
-		@projects = Project.order_updated
+		@projects = Project.includes(:pictures).order_updated
 	end
 
 	def set_pagination

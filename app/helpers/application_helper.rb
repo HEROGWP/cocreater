@@ -16,4 +16,20 @@ module ApplicationHelper
 
     alerts.join("\n").html_safe
   end
+
+  def set_image_url(source, style)
+    if source.pictures.blank?
+      return "/images/#{style}/picture.jpg"
+    else
+      return source.pictures.first.photo.url(style)
+    end
+  end
+
+  def set_images_url(source, style)
+    if source.pictures.blank?
+      pictures = ["/images/#{style}/picture.JPG"]
+    else
+      pictures = source.pictures.map{ |picture| picture.photo.url(style)}
+    end
+  end
 end

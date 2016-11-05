@@ -32,6 +32,10 @@
 		<%= f.select :status, [["募集中", "募集中"], ["進行中", "進行中"], ["已完成","已完成"]]  %>
 	</div>
 
+	<div class="form-group">
+    	<%= file_field_tag "photos[]", multiple: true %>
+	</div>
+
 	<%= f.submit @submit_name, :class => "btn btn-primary" %>
 <% end %>
 
@@ -40,6 +44,7 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
+			<th></th>
 			<th>Name</th>
 			<th>Location</th>
 			<th>School</th>
@@ -50,6 +55,7 @@
 	<tbody>
 		<% @projects.each do |project| %>
 			<tr>
+				<td><%= image_tag set_image_url(project, "thumb") %></td>
 				<td><%= link_to project.name, project_path(project) %></td>
 				<td><%= project.location %></td>
 				<td><%= project.school %></td>
