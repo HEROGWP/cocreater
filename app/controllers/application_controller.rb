@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def configure_permitted_parameters
-    [:name, :phone, :school, :fb_id, :line_id, :description, :logo].each do |user_params|
+    [:name, :phone, :school, :fb_id, :line_id, :description, :logo, :category_ids => []].each do |user_params|
     	devise_parameter_sanitizer.permit(:sign_in, keys: [user_params])
     	devise_parameter_sanitizer.permit(:account_update, keys: [user_params])
   	end

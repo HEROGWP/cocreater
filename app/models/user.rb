@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  has_many :user_categoryships, :dependent => :destroy
+  has_many :categories , :through => :user_categoryships
+
   has_attached_file :logo, styles: { medium: "300x300>", thumb: "50x50>" }, default_url: "/images/:style/user.jpg"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 

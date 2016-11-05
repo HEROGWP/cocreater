@@ -13,13 +13,15 @@ desc "重建一些假資料"
     end
 
   	50.times do
+      category_ids = (1..10).to_a.sample(rand(1..10))
     	@user = User.create(
     						email: Faker::Internet.email, 
     						password: "12345678", 
     						name: Faker::Name.name, 
     						phone: Faker::PhoneNumber.cell_phone, 
     						school: Faker::Educator.university, 
-    						description: Faker::Lorem.paragraph
+    						description: Faker::Lorem.paragraph,
+                category_ids: category_ids
     					)
     	puts "create user name is #{@user.name}"
     end

@@ -6,6 +6,8 @@ class Category < ApplicationRecord
 
   has_many :project_categoryships, :dependent => :destroy
   has_many :projects , :through => :project_categoryships
+  has_many :user_categoryships, :dependent => :destroy
+  has_many :users , :through => :user_categoryships
 
 	scope :order_updated, -> { order('updated_at DESC') }
 end
