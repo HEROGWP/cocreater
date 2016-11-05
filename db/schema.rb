@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105075912) do
+ActiveRecord::Schema.define(version: 20161105084517) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20161105075912) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.index ["project_id"], name: "index_pictures_on_project_id", using: :btree
+  end
+
+  create_table "project_categoryships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.integer  "project_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_project_categoryships_on_category_id", using: :btree
+    t.index ["project_id"], name: "index_project_categoryships_on_project_id", using: :btree
   end
 
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|

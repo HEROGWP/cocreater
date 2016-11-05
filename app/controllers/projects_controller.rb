@@ -59,7 +59,7 @@ class ProjectsController < ApplicationController
 	private
 
 	def project_params
-		params.require(:project).permit(:name, :location, :school, :description, :status)
+		params.require(:project).permit(:name, :location, :school, :description, :status, :category_ids => [])
 	end
 
 	def set_projects

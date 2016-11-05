@@ -3,5 +3,8 @@ class Project < ApplicationRecord
 
 	has_many :pictures, :dependent => :destroy
 
+	has_many :project_categoryships, :dependent => :destroy
+  has_many :categories , :through => :project_categoryships
+
 	scope :order_updated, -> { order('updated_at DESC') }
 end

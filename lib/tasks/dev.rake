@@ -7,7 +7,7 @@ desc "重建一些假資料"
     User.create(email: "pp820819@gmail.com", password: "12345678", role: "admin", name: "pp820819", phone: "0912345678", school: "alpha camp")
     User.create(email: "iamcute@gmail.com", password: "12345678", name: "iamcute", phone: "0912345678", school: "alpha camp")
   	
-    100.times do
+    10.times do
       @category = Category.create(name: Faker::Beer.style)
       puts "create category name is #{@category.name}"
     end
@@ -25,13 +25,15 @@ desc "重建一些假資料"
     end
 
     50.times do
+      category_ids = (1..10).to_a.sample(rand(1..10))
       status = ["募集中", "進行中", "已完成"].sample
       @project = Project.create(
                   name: Faker::Pokemon.name,
                   location: Faker::Pokemon.location,
                   school: Faker::Educator.university,
                   description: Faker::Lorem.paragraph,
-                  status: status
+                  status: status, 
+                  category_ids: category_ids
                  )
       puts "create project name is #{@project.name}"
 

@@ -3,7 +3,9 @@
 <h4><%= @project.location %></h4>
 <h4><%= @project.status %></h4>
 <p><%= @project.description%></p>
-
+<% @project.categories.each do |category| %>
+	<span class="label label-primary"><%= category.name %></span>
+<% end %>
 <% set_images_url(@project, "medium").each do |picture_url| %>
 	<%= image_tag  picture_url%>
 <% end %>
