@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :user_categoryships, :dependent => :destroy
   has_many :categories , :through => :user_categoryships
 
+  has_many :user_projectships, :dependent => :destroy
+  has_many :projects , :through => :user_projectships
+
   has_attached_file :logo, styles: { medium: "300x300>", thumb: "50x50>" }, default_url: "/images/:style/user.jpg"
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\z/
 

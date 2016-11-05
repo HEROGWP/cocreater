@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		
+		@join_users = @project.join_users
 	end
 
 	def create

@@ -12,7 +12,7 @@ desc "重建一些假資料"
       puts "create category name is #{@category.name}"
     end
 
-  	50.times do
+  	for user in 1..50 do
       category_ids = (1..10).to_a.sample(rand(1..10))
     	@user = User.create(
     						email: Faker::Internet.email, 
@@ -24,22 +24,25 @@ desc "重建一些假資料"
                 category_ids: category_ids
     					)
     	puts "create user name is #{@user.name}"
-    end
 
-    50.times do
-      category_ids = (1..10).to_a.sample(rand(1..10))
-      status = ["募集中", "進行中", "已完成"].sample
-      @project = Project.create(
+      2.times do
+        category_ids = (1..10).to_a.sample(rand(1..10))
+        status = ["募集中", "進行中", "已完成"].sample
+        @project = @user.projects.create(
                   name: Faker::Pokemon.name,
                   location: Faker::Pokemon.location,
                   school: Faker::Educator.university,
                   description: Faker::Lorem.paragraph,
                   status: status, 
-                  category_ids: category_ids
+                  category_ids: category_ids,
+                  user_ids: [1, user]
                  )
-      puts "create project name is #{@project.name}"
+        puts "create project name is #{@project.name}"
+      end
+      @user.user_projectships.each do |ship|
+        ship.update(join: true)
+      end
 
     end
-
   end
 end
