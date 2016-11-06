@@ -37,8 +37,25 @@
 		<%= f.select :status, [["募集中", "募集中"], ["進行中", "進行中"], ["已完成","已完成"]]  %>
 	</div>
 
+
+	<%= f.label :positions, "Positions:" %>
+	<%= f.add_nested_fields_link :positions, '', :class => "btn btn-xs btn-success glyphicon glyphicon glyphicon-plus"%>
+	<%= f.nested_fields_for :positions do |af| %>
+		<div class="form-inline">
+    	<div class="form-group">
+				<%= af.text_field :name, :class => "form-control", :placeholder => "name"  %>
+    	</div>
+
+    	<div class="form-group">
+    		<%= af.text_field :description, :class => "form-control", :placeholder => "description" %>
+    	</div>
+    	<%= af.remove_nested_fields_link '', :class => "btn btn-xs btn-danger glyphicon glyphicon glyphicon-remove"%>
+    </div>
+	<% end %>
+
 	<div class="form-group">
-    	<%= file_field_tag "photos[]", multiple: true %>
+		<%= label_tag "上傳圖片:" %>
+    <%= file_field_tag "photos[]", multiple: true %>
 	</div>
 
 	<%= f.submit @submit_name, :class => "btn btn-primary" %>

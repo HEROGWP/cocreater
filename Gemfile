@@ -36,6 +36,7 @@ gem "kaminari"
 gem "devise"
 gem 'omniauth-facebook'
 gem "paperclip", "~> 5.0.0"
+gem 'nested_form_fields'
 
 group :production do
 	gem "mysql2"
