@@ -23,6 +23,9 @@
 							<%= link_to "", role_change_admin_user_path(user, :role => "user"), :method => :post, :class => "btn btn-success glyphicon glyphicon-ok"  %>
 						<% end %>
 					<% end %>
+					<% unless user.admin? %>
+						<%= link_to "", admin_user_path(user), :method => :delete, :class => "btn btn-danger glyphicon glyphicon glyphicon-trash" %>
+					<% end %>
 				</td>
 			</tr>
 		<% end %>
