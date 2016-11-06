@@ -4,6 +4,7 @@
 	<thead>
 		<tr>
 			<th>Logo</th>
+			<th>email</th>
 			<th>Name</th>
 			<th>School</th>
 			<th>Description</th>
@@ -13,7 +14,8 @@
 		<% @users.each do |user| %>
 			<tr>
 				<td><%= image_tag user.logo.url(:thumb)%></td>
-				<td><%= link_to "#{user.name}", user_path(user) %></td>
+				<td><%= link_to "#{user.email}", user_path(user) %></td>
+				<td><%= user.name %></td>
 				<td><%= user.school %></td>
 				<td><%= truncate(user.description, :length => 100) %></td>
 			</tr>
