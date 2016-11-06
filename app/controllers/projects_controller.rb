@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(project_params)
 		if @project.save
+			@project.user_projectships.create(user: current_user, join: true)
 			@project.create_pictures(params[:photos])
 			flash[:notice] = "success to create"
 			set_pagination

@@ -35,15 +35,15 @@ desc "重建一些假資料"
                   description: Faker::Lorem.paragraph,
                   status: status, 
                   category_ids: category_ids,
-                  user_ids: [1, user]
+                  user_ids: [1]
                  )
+        @project.user_projectships.each do |ship|
+          ship.update(join: true)
+        end
         2.times do
           @position = @project.positions.create(name: "攝影師", description: "幫我攝影")
         end
         puts "create project name is #{@project.name}"
-      end
-      @user.user_projectships.each do |ship|
-        ship.update(join: true)
       end
 
     end
