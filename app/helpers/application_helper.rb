@@ -27,7 +27,7 @@ module ApplicationHelper
 
   def set_images_url(source, style)
     if source.pictures.blank?
-      pictures = ["/images/#{style}/picture.JPG"]
+      pictures = ["/images/#{style}/picture.jpg"]
     else
       pictures = source.pictures.map{ |picture| picture.photo.url(style)}
     end
