@@ -28,7 +28,7 @@ desc "重建一些假資料"
       2.times do
         category_ids = (1..10).to_a.sample(rand(1..10))
         status = ["募集中", "進行中", "已完成"].sample
-        @project = @user.projects.create(
+        @project = @user.owned_projects.create(
                   name: Faker::Pokemon.name,
                   location: Faker::Pokemon.location,
                   school: Faker::Educator.university,

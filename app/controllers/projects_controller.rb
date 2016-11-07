@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 			set_project
 			set_update_params
 		else
-			@project = Project.new
+			@project = current_user.owned_projects.build if current_user
 			set_create_params
 		end			
 		set_pagination
@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		@project = Project.new(project_params)
+		@project = current_user.owned_projects.build(project_params)
 		if @project.save
 			@project.user_projectships.create(user: current_user, join: true)
 			@project.create_pictures(params[:photos])

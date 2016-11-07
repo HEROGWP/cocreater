@@ -14,6 +14,8 @@ class Project < ApplicationRecord
 
 	scope :order_updated, -> { order('updated_at DESC') }
 
+	belongs_to :owner, :class_name => "User" ,:foreign_key => "user_id"
+
 	def join_users
 		self.users.where(user_projectships:{join: true})
 	end
