@@ -2,12 +2,15 @@
 # ======================
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
-
+server '139.162.29.102', user: 'deploy', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-
+set :repo_url, 'git@github.com:HEROGWP/cocreator.git'
+#取得當前的branch
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+set :deploy_to, '/home/deploy/staging'
 
 # role-based syntax
 # ==================
