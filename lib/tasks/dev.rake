@@ -26,6 +26,7 @@ desc "重建一些假資料"
     	puts "create user name is #{@user.name}"
 
       2.times do
+        date = Time.at(rand((40.years)..(47.years))).to_date
         category_ids = (1..10).to_a.sample(rand(1..10))
         status = ["募集中", "進行中", "已完成"].sample
         @project = @user.owned_projects.create(
@@ -33,6 +34,8 @@ desc "重建一些假資料"
                   location: Faker::Pokemon.location,
                   school: Faker::Educator.university,
                   description: Faker::Lorem.paragraph,
+                  startdate: date,
+                  deadline: date + 1.month,
                   status: status, 
                   category_ids: category_ids,
                   user_ids: [1]

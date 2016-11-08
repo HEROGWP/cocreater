@@ -2,9 +2,12 @@
 	<%= image_tag user.logo.url(:thumb) %>
 <% end %>
 <h2><%= @project.name %></h2>
+<h4><%= @project.category %></h4>
 <h4><%= @project.school %></h4>
 <h4><%= @project.location %></h4>
 <h4><%= @project.status %></h4>
+<h4><%= @project.startdate %></h4>
+<h4><%= @project.deadline %></h4>
 <p><%= @project.description%></p>
 <% @project.categories.each do |category| %>
 	<span class="label label-primary"><%= category.name %></span>

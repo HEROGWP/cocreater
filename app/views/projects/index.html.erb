@@ -13,6 +13,11 @@
 	</div>
 
 	<div class="form-group">
+		<%= f.label :category, "Category:" %>
+		<%= f.collection_select :category, Category.all, :name, :name, :prompt => "Please select" %>
+	</div>
+
+	<div class="form-group">
 		<%= f.label :location, "Location:" %>
 		<%= f.text_field :location, :class => "form-control" %>
 	</div>
@@ -28,13 +33,18 @@
 	</div>
 	
 	<div class="form-group">
-		<%= f.label :category, "Category:" %>
+		<%= f.label :categories, "Categories:" %>
 		<%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)%>
 	</div>
 
 	<div class="form-group">
 		<%= f.label :status, "Status:" %>
 		<%= f.select :status, [["募集中", "募集中"], ["進行中", "進行中"], ["已完成","已完成"]]  %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :deadline, "Deadline:" %>
+		<%= f.date_select :deadline, :start_year => Time.now.year %>
 	</div>
 
 
