@@ -4,7 +4,7 @@ json.new_projects @new_projects do |project|
   json.school project.school
   json.category project.category
 
-  json.pictures_url project.pictures.map{|picture|  request.protocol + request.host_with_port + picture.photo.url(:medium)}
+  json.pictures_url project.pictures.map{|picture| asset_url( picture.photo.url(:medium))}
    	
 end
 
@@ -14,5 +14,5 @@ json.success_projects @success_projects do |project|
   json.school project.school
   json.category project.category
 
-  json.pictures_url project.pictures.map{|picture|  request.protocol + request.host_with_port + picture.photo.url(:medium)}
+  json.pictures_url project.pictures.map{|picture| asset_url( picture.photo.url(:medium)) }
 end
