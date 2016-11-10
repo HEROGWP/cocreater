@@ -12,6 +12,8 @@ desc "重建一些假資料"
       puts "create category name is #{@category.name}"
     end
 
+    @categories = Category.all.pluck(:name)
+
   	for user in 1..50 do
       category_ids = (1..10).to_a.sample(rand(1..10))
     	@user = User.create(
@@ -44,7 +46,7 @@ desc "重建一些假資料"
           ship.update(join: true)
         end
         2.times do
-          @position = @project.positions.create(name: "攝影師", description: "幫我攝影")
+          @position = @project.positions.create(name: "攝影師", description: "幫我攝影", category: @categories.sample)
         end
         puts "create project name is #{@project.name}"
       end
