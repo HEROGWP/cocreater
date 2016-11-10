@@ -19,6 +19,12 @@ class User < ApplicationRecord
 
 	scope :order_role, -> { order('role') }
 
+	before_create :generate_authentication_token
+
+	def generate_authentication_token
+    self.authentication_token = Devise.friendly_token
+  end
+
   def admin?
   	self.role == "admin"
   end
