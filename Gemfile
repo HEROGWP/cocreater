@@ -36,6 +36,7 @@ gem "devise"
 gem 'omniauth-facebook'
 gem "paperclip", "~> 5.0.0"
 gem 'nested_form_fields'
+gem "rest-client"
 
 gem 'mysql2'
 
