@@ -13,6 +13,8 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :positions, allow_destroy: true, :reject_if => :all_blank
 
 	scope :order_updated, -> { order('updated_at DESC') }
+	scope :new_projcets, -> { where("status = '募集中'") }
+	scope :success_projcets, -> { where("status != '募集中'") }
 
 	belongs_to :owner, :class_name => "User" ,:foreign_key => "user_id"
 

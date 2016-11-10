@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   	end
 	end
 
+  namespace :api do
+    resources :projects, only: [:index]
+  end
+
   resources :users, only: [:index, :show]
   resources :projects, except: [:new, :edit]
 end
