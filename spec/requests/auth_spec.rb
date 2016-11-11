@@ -14,7 +14,7 @@ RSpec.describe "Auth", type: :request do
 
       expect(User).to receive(:get_fb_data).with("fb-token-xxxx").and_return(fb_data)
 
-      post "/api/login", :access_token => "fb-token-xxxx"
+      post "/api/login", params:{ :access_token => "fb-token-xxxx" }
 
       expect(response).to have_http_status(200)
 
@@ -40,7 +40,7 @@ RSpec.describe "Auth", type: :request do
 
       expect(User).to receive(:get_fb_data).with("fb-token-xxxx").and_return(fb_data)
 
-      post "/api/login", :access_token => "fb-token-xxxx"
+      post "/api/login", params:{ :access_token => "fb-token-xxxx" }
 
       expect(response).to have_http_status(200)
 
@@ -57,7 +57,7 @@ RSpec.describe "Auth", type: :request do
     it "should login failed" do
       expect(User).to receive(:get_fb_data).with("qq").and_return(nil)
 
-      post "/api/login", :access_token => "qq"
+      post "/api/login", params:{ :access_token => "qq" }
 
       expect(response).to have_http_status(401)
     end
@@ -67,7 +67,7 @@ RSpec.describe "Auth", type: :request do
 
   describe "login" do
     it "should login successfully" do
-       post "/api/login", :email => user.email, :password => "12345678"
+       post "/api/login", :params => { :email => user.email, :password => "12345678" }
 
        expect(response).to have_http_status(200)
 
@@ -89,7 +89,7 @@ RSpec.describe "Auth", type: :request do
 
 
     it "should login failed if wrong password" do
-      post "/api/login", :email => user.email, :password => "xxx"
+      post "/api/login", params:{ :email => user.email, :password => "xxx" }
 
       expect(response).to have_http_status(401)
     end
@@ -105,7 +105,7 @@ RSpec.describe "Auth", type: :request do
     it "should expire user auth token" do
       old_auth_token = user.authentication_token
 
-      post "/api/logout", :auth_token => old_auth_token
+      post "/api/logout", params:{ :auth_token => old_auth_token }
 
       expect(response).to have_http_status(200)
 
