@@ -54,4 +54,11 @@ desc "重建一些假資料"
 
     end
   end
+  task :update_users_token => :environment do
+    users = User.all
+    users.each do |user| 
+      user.update!( authentication_token:  Devise.friendly_token ) 
+      puts user.email
+    end
+  end
 end
