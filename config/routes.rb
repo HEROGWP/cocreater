@@ -20,7 +20,11 @@ Rails.application.routes.draw do
     resource :self, only: [:show] do 
       resources :projects, :controller => "self_projects", only: [:show]
     end
-    resources :users, only: [:show]
+    resources :users, only: [:show] do
+      member do
+        get :projects
+      end
+    end
   end
 
   resources :users, only: [:index, :show]
