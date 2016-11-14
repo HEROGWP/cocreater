@@ -1,6 +1,5 @@
 <%= image_tag @user.logo.url(:medium) %>
 <h2><%= @user.name %></h2>
-<h4><%= @user.school %></h4>
 <% @user.categories.each do |category| %>
 	<span class="label label-primary"><%= category.name %></span>
 <% end %>

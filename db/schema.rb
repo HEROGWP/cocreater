@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114033857) do
+ActiveRecord::Schema.define(version: 20161114035137) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
@@ -108,9 +108,6 @@ ActiveRecord::Schema.define(version: 20161114033857) do
     t.string   "fb_token"
     t.string   "name"
     t.string   "phone"
-    t.string   "school"
-    t.string   "fb_id"
-    t.string   "line_id"
     t.text     "description",            limit: 65535
     t.string   "logo_file_name"
     t.string   "logo_content_type"

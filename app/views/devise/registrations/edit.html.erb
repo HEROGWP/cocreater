@@ -18,21 +18,6 @@
     <%= f.text_field :phone %>
   </div>
 
-  <div class="field">
-    <%= f.label :school %><br />
-    <%= f.text_field :school %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fb_id %><br />
-    <%= f.text_field :fb_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :line_id %><br />
-    <%= f.text_field :line_id %>
-  </div>
-
   <div class="form-group">
     <%= f.label :category, "Category:" %>
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name)%>

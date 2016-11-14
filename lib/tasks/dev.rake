@@ -3,9 +3,9 @@ desc "重建一些假資料"
 	task :build => ["tmp:clear", "log:clear", "db:drop", "db:create", "db:migrate"]
   task :rebuild => ["dev:build" , :fake]
   task :fake => :environment do
-  	User.create(email: "test@gmail.com", password: "12345678", role: "admin", name: "test", phone: "0912345678", school: "alpha camp", authentication_token:  Devise.friendly_token)
-    User.create(email: "pp820819@gmail.com", password: "12345678", role: "admin", name: "pp820819", phone: "0912345678", school: "alpha camp", authentication_token:  Devise.friendly_token)
-    User.create(email: "iamcute@gmail.com", password: "12345678", name: "iamcute", phone: "0912345678", school: "alpha camp", authentication_token:  Devise.friendly_token)
+  	User.create(email: "test@gmail.com", password: "12345678", role: "admin", name: "test", phone: "0912345678", authentication_token:  Devise.friendly_token)
+    User.create(email: "pp820819@gmail.com", password: "12345678", role: "admin", name: "pp820819", phone: "0912345678", authentication_token:  Devise.friendly_token)
+    User.create(email: "iamcute@gmail.com", password: "12345678", name: "iamcute", phone: "0912345678", authentication_token:  Devise.friendly_token)
   	
     10.times do
       @category = Category.create(name: Faker::Beer.style)
@@ -21,7 +21,6 @@ desc "重建一些假資料"
     						password: "12345678", 
     						name: Faker::Name.name, 
     						phone: Faker::PhoneNumber.cell_phone, 
-    						school: Faker::Educator.university, 
     						description: Faker::Lorem.paragraph,
                 category_ids: category_ids,
                 authentication_token:  Devise.friendly_token
