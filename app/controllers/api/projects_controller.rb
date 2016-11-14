@@ -5,4 +5,9 @@ class Api::ProjectsController < Api::BaseController
 		@recruit_projects = Project.includes(:pictures, :categories).recruit_projects
 		@success_projects = Project.includes(:pictures, :categories).success_projects
 	end
+
+	def show
+		@project = Project.find(params[:id])
+		@owner = @project.owner
+	end
 end

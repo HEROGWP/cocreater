@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     post "login" => "auth#login"
     post "logout" => "auth#logout"
     
-    resources :projects, only: [:index]
+    resources :projects, only: [:index, :show]
   end
 
   resources :users, only: [:index, :show]
