@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     post "logout" => "auth#logout"
     
     resources :projects, only: [:index, :show]
+    resource :self, only: [:show] do 
+      resources :projects, :controller => "self_projects", only: [:show]
+    end
   end
 
   resources :users, only: [:index, :show]
