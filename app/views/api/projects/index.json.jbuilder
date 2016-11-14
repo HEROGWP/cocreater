@@ -1,18 +1,11 @@
-json.new_projects @new_projects do |project|
-  json.id project.id
-  json.name project.name
-  json.school project.school
-  json.category project.category
-
-  json.pictures_url project.pictures.map{|picture| asset_url( picture.photo.url(:medium))}
+json.recruit_projects @recruit_projects do |project|
+  json.(project, :id, :name, :description, :startdate, :deadline, :status)
+  json.categories project.categories.map(&:name)
+  json.pictures_url project.pictures.map{ |picture| asset_url( picture.photo.url(:medium) ) }
    	
 end
 
 json.success_projects @success_projects do |project|
-	json.id project.id
-  json.name project.name
-  json.school project.school
-  json.category project.category
-
-  json.pictures_url project.pictures.map{|picture| asset_url( picture.photo.url(:medium)) }
+	json.(project, :id, :name, :description, :deadline, :status)
+  json.pictures_url project.pictures.map{ |picture| asset_url( picture.photo.url(:medium) ) }
 end

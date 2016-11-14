@@ -2,7 +2,7 @@ class Api::ProjectsController < Api::BaseController
 	before_action :authenticate_user!
 	
 	def index
-		@new_projects = Project.includes(:pictures).new_projcets
-		@success_projects = Project.includes(:pictures).success_projcets
+		@recruit_projects = Project.includes(:pictures, :categories).recruit_projects
+		@success_projects = Project.includes(:pictures, :categories).success_projects
 	end
 end
