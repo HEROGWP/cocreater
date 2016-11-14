@@ -35,8 +35,9 @@ desc "重建一些假資料"
         @project = @user.owned_projects.create(
                   name: Faker::Pokemon.name,
                   location: Faker::Pokemon.location,
-                  school: Faker::Educator.university,
                   description: Faker::Lorem.paragraph,
+                  vision: Faker::Lorem.paragraph,
+                  story: Faker::Lorem.paragraph,
                   startdate: date,
                   deadline: date + 1.month,
                   status: status, 

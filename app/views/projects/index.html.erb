@@ -23,8 +23,13 @@
 	</div>
 
 	<div class="form-group">
-		<%= f.label :school, "School:" %>
-		<%= f.text_field :school, :class => "form-control" %>
+		<%= f.label :vision, "Vision:" %>
+		<%= f.text_area :vision, :class => "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :story, "Story:" %>
+		<%= f.text_area :story, :class => "form-control" %>
 	</div>
 
 	<div class="form-group">
@@ -40,6 +45,11 @@
 	<div class="form-group">
 		<%= f.label :status, "Status:" %>
 		<%= f.select :status, [["募集中", "募集中"], ["進行中", "進行中"], ["已完成","已完成"]]  %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :startdate, "Startdate:" %>
+		<%= f.date_select :startdate, :start_year => Time.now.year %>
 	</div>
 
 	<div class="form-group">
@@ -83,7 +93,6 @@
 			<th></th>
 			<th>Name</th>
 			<th>Location</th>
-			<th>School</th>
 			<th>Description</th>
 			<th>Status</th>
 		</tr>
@@ -94,7 +103,6 @@
 				<td><%= image_tag set_image_url(project, "thumb") %></td>
 				<td><%= link_to project.name, project_path(project) %></td>
 				<td><%= project.location %></td>
-				<td><%= project.school %></td>
 				<td><%= truncate(project.description, :length => 70) %></td>
 				<td><%= project.status %></td>
 				<td>

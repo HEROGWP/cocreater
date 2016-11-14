@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110111537) do
+ActiveRecord::Schema.define(version: 20161114033857) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20161110111537) do
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
     t.string   "location"
-    t.string   "school"
     t.text     "description", limit: 65535
     t.string   "status",                    default: "募集中"
     t.datetime "created_at",                                null: false
@@ -67,6 +66,8 @@ ActiveRecord::Schema.define(version: 20161110111537) do
     t.string   "category"
     t.date     "startdate"
     t.date     "deadline"
+    t.text     "vision",      limit: 65535
+    t.text     "story",       limit: 65535
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 

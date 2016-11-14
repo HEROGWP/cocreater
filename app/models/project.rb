@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-	validates_presence_of :name, :location, :school, :message => "不能是空！！！"
+	validates_presence_of :name, :location, :message => "不能是空！！！"
 
 	has_many :pictures, :dependent => :destroy
 
