@@ -7,6 +7,7 @@ json.owner do
 	json.logo_url asset_url( @owner.logo.url(:thumb) )
 end
 json.positions @project.positions do |position|
-	json.(position, :name, :description, :category)
+	json.(position, :name, :description)
+	json.category position.category.name
 	json.logo_url asset_url( position.user.logo.url(:thumb) )
 end
