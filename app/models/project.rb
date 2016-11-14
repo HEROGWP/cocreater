@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
 	validates_presence_of :name, :location, :message => "不能是空！！！"
+	after_create :owner_join_project
 
 	has_many :pictures, :dependent => :destroy
 
@@ -20,5 +21,9 @@ class Project < ApplicationRecord
 
 	def join_users
 		self.users.where(user_projectships:{join: true})
+	end
+
+	def owner_join_project
+		self.user_projectships.create!(user: self.owner, join: true)
 	end
 end
