@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Auth", type: :request do
 
-  let!(:user) {  User.create!( :email => "test@gmail.com", :password => "12345678", :fb_uid => "1234" ) }
+  #let!(:user) {  User.create!( :email => "test@gmail.com", :password => "12345678", :fb_uid => "1234" ) }
+  let!(:user) {  create(:user) }
 
   describe "facebook" do
     it "should login by facebook access_token (not existing)" do
