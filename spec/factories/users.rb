@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    email "test@gmail.com" 
+  	sequence :email do |n|
+    	"test#{n}@gmail.com"
+  	end
     password "12345678"
     role "admin"
     fb_uid "1234"
