@@ -10,7 +10,7 @@ class Project < ApplicationRecord
   has_many :user_projectships, :dependent => :destroy
   has_many :users , :through => :user_projectships
 
-  has_many :positions, :dependent => :destroy
+  has_many :positions, :dependent => :destroy, :inverse_of => :project
   accepts_nested_attributes_for :positions, allow_destroy: true, :reject_if => :all_blank
 
 	scope :order_updated, -> { order('updated_at DESC') }
