@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
-		@project.positions.destroy_all
+		
 		if @project.update(project_params)
 			@project.destroy_pictures(params[:photos])
 			@project.create_pictures(params[:photos])
@@ -60,7 +60,7 @@ class ProjectsController < ApplicationController
 	private
 
 	def project_params
-		params.require(:project).permit(:name, :location, :description, :vision, :story , :status, :category, :startdate, :deadline, :positions_attributes => [:name, :description, :category_id, :_destroy], :category_ids => [])
+		params.require(:project).permit(:name, :location, :description, :vision, :story , :status, :category, :startdate, :deadline, :positions_attributes => [:id, :name, :description, :category_id, :_destroy], :category_ids => [])
 	end
 
 	def set_projects
