@@ -4,7 +4,10 @@ FactoryGirl.define do
     	"test#{n}@gmail.com"
   	end
     password "12345678"
-    role "admin"
+    role "user"
     fb_uid "1234"
+    factory :admin do
+    	role "admin"
+    end
   end
 end
