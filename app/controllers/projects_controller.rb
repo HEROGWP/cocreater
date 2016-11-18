@@ -50,11 +50,11 @@ class ProjectsController < ApplicationController
 	end
 
 	def destroy
-		page = set_destory_page(@projects, @project)
+		@page = set_destory_page(@projects, @project)
 		@project.destroy
 		flash[:notice] = "success to delete"
 		set_pagination
-		redirect_to projects_path(:page => page)
+		redirect_to projects_path(:page => @page)
 	end
 
 	private

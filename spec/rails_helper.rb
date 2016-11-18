@@ -57,4 +57,5 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.extend ControllerLogin, :type => :controller
+  config.include RequestLogin, :type => :request
 end
