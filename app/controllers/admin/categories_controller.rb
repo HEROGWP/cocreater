@@ -41,11 +41,11 @@ class Admin::CategoriesController < Admin::BaseController
 	end
 
 	def destroy
-		page = set_destory_page(@categories, @category)
+		@page = set_destory_page(@categories, @category)
 		@category.destroy
 		flash[:notice] = "success to delete"
 		set_pagination
-		redirect_to admin_categories_path(:page => page)
+		redirect_to admin_categories_path(:page => @page)
 	end
 
 	private
