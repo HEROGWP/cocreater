@@ -1,6 +1,7 @@
 class Admin::CategoriesController < Admin::BaseController
 	before_action :set_categories
 	before_action :set_category, :only => [:update, :destroy]
+	PER = 5
 	
 	def index
 		if params[:id]
@@ -41,7 +42,7 @@ class Admin::CategoriesController < Admin::BaseController
 	end
 
 	def destroy
-		@page = set_destory_page(@categories, @category)
+		@page = set_destory_page(@categories, @category, PER)
 		@category.destroy
 		flash[:notice] = "success to delete"
 		set_pagination
@@ -59,7 +60,7 @@ class Admin::CategoriesController < Admin::BaseController
 	end
 
 	def set_pagination
-		@categories = @categories.page(params[:page]).per(5)
+		@categories = @categories.page(params[:page]).per(PER)
 	end
 
 	def set_category

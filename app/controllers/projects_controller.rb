@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 	before_action :authenticate_user!, except: [:index]
 	before_action :set_projects
 	before_action :set_project, :only => [:update, :destroy, :show]
+	PER = 6
 	
 	def index
 		if params[:id]
@@ -50,7 +51,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def destroy
-		@page = set_destory_page(@projects, @project)
+		@page = set_destory_page(@projects, @project, PER)
 		@project.destroy
 		flash[:notice] = "success to delete"
 		set_pagination
@@ -68,7 +69,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def set_pagination
-		@projects = @projects.page(params[:page]).per(5)
+		@projects = @projects.page(params[:page]).per(PER)
 	end
 
 	def set_project

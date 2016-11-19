@@ -5,14 +5,14 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_destory_page(all, source)
+  def set_destory_page(all, source, per)
 		count = all.find_index(source) + 1
-		if all.last == source && ( count % 5 == 1)
-			page = count / 5
-		elsif (count % 5 ) == 0
-			page = count / 5 
+		if all.last == source && ( count % per == 1)
+			page = count / per
+		elsif (count % per ) == 0
+			page = count / per 
 		else
-			page = count / 5 + 1
+			page = count / per + 1
 		end
 	end
 
