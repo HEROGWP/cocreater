@@ -27,7 +27,7 @@ desc "重建一些假資料"
 
       2.times do
         date = Time.at(rand((40.years)..(47.years))).to_date
-        category_ids = (1..10).to_a.sample(rand(1..10))
+        category_ids = (1..10).to_a.sample(3)
         status = ["募集中", "進行中", "已完成"].sample
         @project = @user.owned_projects.create(
                   name: Faker::Pokemon.name,

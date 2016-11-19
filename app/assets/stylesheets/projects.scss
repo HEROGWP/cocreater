@@ -1,3 +1,85 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.center{
+	text-align: center;
+}
+.link {
+	display: inline-block;
+	vertical-align: middle;
+	text-decoration: none !important;
+	margin: 0 15px;
+}
+.project {
+	width: 340px;
+	height: 300px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+.project > p {
+	margin: 10px 0 15px;
+	color: rgba(42, 83, 98, 1.00);
+}
+.project_top {
+	position: relative;
+}
+
+.project_top > img {
+	width: 340px;
+	height: 172px;
+}
+
+.project_top > div { 
+	text-align: left;
+	width: 340px;
+	height: 35px;
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(42, 83, 98, 0.7);
+	padding-top: 6px;
+}
+
+.status > .label-default {
+	background-color: rgba(254, 253, 159, 1.00);
+	color: rgba(255, 120, 2, 1.00);
+	margin: 20px;
+}
+.project_name {
+	color: rgba(196, 208, 207, 1.00)
+}
+.project_time {
+	width: 340px;
+	height: 46px;
+	clear: both;
+}
+.project_time > div {
+	width: 169px;
+	height: 46px;
+	background-color: rgba(248, 248, 248, 1.00)
+}
+.project_time p {
+	margin: 5px 0 0;
+	font-size: 12px;
+}
+.project_startdate {
+	float: left;
+	color: rgba(255, 120, 2, 1.00);
+}
+.project_deadline{
+	float: right;
+	color: rgba(42, 83, 98, 1.00)
+}
+.project_bottom {
+	width: 340px;
+	height: 46px;
+	margin-top: 2px;
+	background-color: rgba(248, 248, 248, 1.00);
+	padding-top: 8px;
+}
+.project_bottom > .label-default {
+	padding: 0 15px;
+	border: 1px solid rgba(255, 120, 2, 1.00);
+	background-color: #fff;
+	color: rgba(255, 120, 2, 1.00);
+}

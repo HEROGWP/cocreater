@@ -87,6 +87,57 @@
 
 
 <hr style="height:2px;border:none;color:#333;background-color:#333;" />
+
+
+<div class="center">
+	
+	<% @projects.each do |project| %>
+		
+		<a href="<%= project_path(project) %>" class="link">
+			
+			<div class="project">
+				
+				<div class="project_top">
+				
+					<%= image_tag set_image_url(project, "medium") %>
+					
+					<div class="status">
+						<span class="label label-default"><%= project.status %></span>
+						<span class="project_name"><%= project.name %></span>
+					</div>
+				
+				</div>
+				
+				<p><%= truncate(project.description, :length => 25) %></p>
+				
+				<div class="project_time">
+					
+					<div class="project_startdate">
+						<p>募集截止時間</p>
+						<p><%= project.startdate %></p>
+					</div>
+					
+					<div class="project_deadline">
+						<p>預計完成時間</p>
+						<p><%= project.deadline %></p>
+					</div>
+				
+				</div>
+				
+				<div class="project_bottom">
+				
+					<%= image_tag '/need.png'%>
+					<% project.categories.each do |category| %>
+						<span class="label label-default"><%= category.name %></span>
+					<% end %>
+				
+				</div>
+			
+			</div>
+		</a>
+	<% end %>
+</div>
+
 <table class="table table-hover">
 	<thead>
 		<tr>
@@ -103,11 +154,13 @@
 				<td><%= image_tag set_image_url(project, "thumb") %></td>
 				<td><%= link_to project.name, project_path(project) %></td>
 				<td><%= project.location %></td>
-				<td><%= truncate(project.description, :length => 70) %></td>
+				<td><%= truncate(project.description, :length => 50) %></td>
 				<td><%= project.status %></td>
 				<td>
-					<%= link_to "", projects_path( :id => project, :page => params[:page]), :class => "btn btn-primary glyphicon glyphicon-pencil" %>
-					<%= link_to "", project_path( project , :page => params[:page]), :method => :delete, :class => "btn btn-danger glyphicon glyphicon glyphicon-trash" %>
+					<% if current_user && (current_user == project.owner || current_user.admin?) %>
+						<%= link_to "", projects_path( :id => project, :page => params[:page]), :class => "btn btn-primary glyphicon glyphicon-pencil" %>
+						<%= link_to "", project_path( project , :page => params[:page]), :method => :delete, :class => "btn btn-danger glyphicon glyphicon glyphicon-trash" %>
+					<% end %>
 				</td>
 			</tr>
 		
