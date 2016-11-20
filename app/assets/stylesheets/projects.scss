@@ -83,3 +83,156 @@
 	background-color: #fff;
 	color: rgba(255, 120, 2, 1.00);
 }
+
+
+
+#project {
+	margin-top: 50px;
+	width: 750px;
+	margin: 0 auto;
+}
+#project_top {
+	position: relative;
+	text-align: center;
+}
+
+#project_top > img {
+	width: 750px;
+	height: 350px;
+}
+#project_top > div {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(42, 83, 98, 0.7);
+	width: 254px;
+	height: 350px;
+}
+#project_top p {
+	font-size: 20px;
+	color: rgba(196, 208, 207, 1.00);
+	margin-top: 50px;
+}
+#project_top .glyphicon {
+	font-size: 40px;
+	margin-right: 20px;
+}
+
+#project_top > span {
+	position: absolute;
+	left: 30px;
+	bottom: 30px;
+	background-color: rgba(254, 253, 159, 1.00);
+	color: rgba(255, 120, 2, 1.00);
+	font-size: 30px;
+}
+
+.title {
+	width: 750px;
+	height: 70px;
+	background-color: rgba(222, 242, 231, 1.00);
+}
+.title p {
+	color: rgba(42, 83, 98, 1.00);
+	font-size: 30px;
+	padding: 15px 30px;
+}
+.title + p {
+	color: rgba(42, 83, 98, 1.00);
+	font-size: 25px;
+	padding: 15px 30px;
+}
+
+.position {
+	position: relative;
+	width: 750px;
+	height: 130px;
+	border: 1px solid #fff;
+}
+.position > img {
+	position: absolute;
+	left: 15px;
+	bottom: 15px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.position > .label-default {
+	position: absolute;
+	top: 20px;
+	left: 170px;
+	padding: 0 15px;
+	border: 1px solid rgba(255, 120, 2, 1.00);
+	background-color: #fff;
+	color: rgba(255, 120, 2, 1.00);
+	font-size: 30px;
+}
+.position > p {
+	position: absolute;
+	bottom: 5px;
+	left: 170px;
+	color: rgba(255, 120, 2, 1.00);
+	font-size: 30px;
+}
+.position > a {
+	position: absolute;
+	right: 25px;
+	top: 35px;
+	font-size: 30px;
+	color: #fff;
+	background-color: rgba(255, 120, 2, 1.00);
+	border: 1px solid rgba(255, 120, 2, 1.00);
+}
+
+.position > a:hover {
+	position: absolute;
+	right: 25px;
+	top: 35px;
+	font-size: 30px;
+	color: #fff;
+	background-color: rgba(255, 120, 2, 1.00);
+	border: 1px solid rgba(255, 120, 2, 1.00);
+}
+
+.position > a:active {
+	position: absolute;
+	right: 25px;
+	top: 35px;
+	font-size: 30px;
+	color: #fff;
+	background-color: rgba(255, 120, 2, 1.00);
+	border: 1px solid rgba(255, 120, 2, 1.00);
+}
+
+.position > a:focus {
+	position: absolute;
+	right: 25px;
+	top: 35px;
+	font-size: 30px;
+	color: #fff;
+	background-color: rgba(255, 120, 2, 1.00);
+	border: 1px solid rgba(255, 120, 2, 1.00);
+}
+.position > a:active:focus {
+	position: absolute;
+	right: 25px;
+	top: 35px;
+	font-size: 30px;
+	color: #fff;
+	background-color: rgba(255, 120, 2, 1.00);
+	border: 1px solid rgba(255, 120, 2, 1.00);
+}
+.position_description {
+	/*box-shadow:inset 3px 3px 3px rgba(20%,20%,40%,0.5);*/
+	box-shadow:1px 1px 3px 2px rgba(20%,20%,40%,0.5) inset;
+	background-color: rgba(223, 223, 223, 1.00);
+
+	width: 750px;
+	height: 96px;
+}
+.position_description > p {
+	margin-left: 30px;
+	padding-top: 25px;
+	font-size: 30px
+}

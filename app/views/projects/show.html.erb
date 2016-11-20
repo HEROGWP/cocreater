@@ -1,3 +1,52 @@
+<div id="project">
+	<div class="title">
+		<p><%= @project.name %></p>
+	</div>
+	<div id="project_top">
+		<%= image_tag set_images_url(@project, "original").first %>
+		
+		<div>
+			<p><span class="glyphicon glyphicon-map-marker"></span><%= @project.location %></p>
+			<p>募集截止時間<br><%= @project.startdate %></p>
+			<p>預計完成時間<br><%= @project.deadline %></p>
+		</div>
+		
+		<span class="label label-default"><%= @project.status %></span>
+	</div>
+	
+	<div class="title">
+		<p>故事背景</p>
+	</div>
+	<%= simple_format @project.story %>
+	
+	<div class="title">
+		<p>創作願景</p>
+	</div>
+	<%= simple_format @project.vision %>
+	
+	<div class="title">
+		<p>成品描述</p>
+	</div>
+	<%= simple_format @project.description %>
+	<div class="title">
+		<p>媒合名單</p>
+	</div>
+
+	<% @project.positions.each do |position| %>
+		<div class="position">
+			<%= image_tag position.user.logo.url(:medium)%>
+			<span class="label label-default"><%= position.category.name %></span>
+			<p><%= position.name %></p>
+			<%= link_to "", "#", :class => "btn btn-default btn-md glyphicon glyphicon-plus " %>
+		</div>
+		<div class="position_description">
+			<p><%= position.description %></p>
+		</div>
+	<% end %>
+</div>
+
+
+
 <% @join_users.each do |user| %>
 	<%= image_tag user.logo.url(:thumb) %>
 <% end %>
@@ -35,7 +84,7 @@
 			<tr>
 				<td><%= position.name %></td>
 				<td><%= position.description %></td>
-				<td><%= position.category %></td>
+				<td><%= position.category.name %></td>
 			</tr>
 		
 		<% end %>
