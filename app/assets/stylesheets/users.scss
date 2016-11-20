@@ -1,3 +1,157 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#user {
+	width: 750px;
+	margin: 0 auto;
+}
+#user_top {
+	width: 750px;
+	text-align: center;
+}
+#user_top > img {
+	width: 288px;
+	height: 288px;
+	margin-top: 70px;
+}
+#user_top > h2 {
+	font-size: 30px;
+}
+#user_top > p {
+	font-size: 25px;
+	padding: 40px 30px;
+}
+#user_bottom {
+	width: 750px;
+	padding-left: 15px;
+	padding-top: 15px;
+}
+#user_bottom > .label-default {
+	padding: 0 15px;
+	border: 1px solid rgba(255, 120, 2, 1.00);
+	background-color: #fff;
+	color: rgba(255, 120, 2, 1.00);
+	font-size: 30px;
+	margin: 15px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.nav-tabs a {
+	font-size: 30px;
+}
+.nav-tabs li.active > a, .nav-tabs li.active > a:hover, .nav-tabs li.active > a:focus {
+	color: rgba(255, 120, 2, 1.00);
+}
+.nav-tabs li {
+	width: 375px;
+	text-align: center;
+}
+.nav-tabs > .active:after {
+	content: " ";
+	display: block;
+	width: 373px;
+	height: 5px;
+	background-color: rgba(255, 120, 2, 1.00);
+}
+
+
+
+.user_center{
+	text-align: center;
+}
+.user_link {
+	display: inline-block;
+	vertical-align: middle;
+	text-decoration: none !important;
+	margin: 0 15px;
+}
+.user_project {
+	width: 670px;
+	height: 618px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+.user_project > p {
+	margin: 10px 0 15px;
+	color: rgba(42, 83, 98, 1.00);
+}
+.user_project_top {
+	position: relative;
+}
+
+.user_project_top > img {
+	width: 670px;
+	height: 344px;
+}
+
+.user_project_top > div { 
+	text-align: left;
+	width: 670px;
+	height: 70px;
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(42, 83, 98, 0.7);
+	padding-top: 13px;
+}
+
+.user_status > .label-default {
+	background-color: rgba(254, 253, 159, 1.00);
+	color: rgba(255, 120, 2, 1.00);
+	margin: 20px;
+	font-size: 30px
+}
+.user_project_name {
+	color: rgba(196, 208, 207, 1.00);
+	font-size: 30px;
+}
+.user_project_time {
+	width: 670px;
+	height: 92px;
+	clear: both;
+}
+.user_project_time > div {
+	width: 330px;
+	height: 92px;
+	background-color: rgba(248, 248, 248, 1.00)
+}
+.user_project_top + p {
+	font-size: 25px;
+}
+.user_project_time p {
+	margin: 10px 0;
+	font-size: 20px;
+}
+.user_project_startdate {
+	float: left;
+	color: rgba(255, 120, 2, 1.00);
+}
+.user_project_deadline{
+	float: right;
+	color: rgba(42, 83, 98, 1.00)
+}
+.user_project_bottom {
+	text-align: left;
+	width: 670px;
+	height: 92px;
+	margin-top: 10px;
+	background-color: rgba(248, 248, 248, 1.00);
+	padding-top: 15px;
+}
+.user_project_bottom > img {
+	display: inline-block;
+	vertical-align: middle;
+	width: 58px;
+	height: 58px;
+	margin-left: 20px;
+}
+.user_project_bottom > .label-default {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 15px;
+	border: 1px solid rgba(255, 120, 2, 1.00);
+	background-color: #fff;
+	color: rgba(255, 120, 2, 1.00);
+	font-size: 30px;
+	margin-left: 20px;
+}

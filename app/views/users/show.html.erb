@@ -1,3 +1,102 @@
+<div id="user">
+	<div role="tabpanel">
+	  <!-- 標籤面板：標籤區 -->
+	  <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+         <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">個人資料</a>
+      </li>
+      <li role="presentation">
+         <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">專案作品</a>
+      </li>
+	  </ul>
+
+	  <!-- 標籤面板：內容區 -->
+	  <div class="tab-content">
+	    <div role="tabpanel" class="tab-pane active" id="tab1">
+				
+				
+				<div class="title">
+					<p>個人簡介</p>
+				</div>
+				<div id="user_top">
+					<%= image_tag @user.logo.url(:original) %>
+					<h2><%= @user.name %></h2>
+					<p><%= @user.description %></p>
+				</div>
+				<div class="title">
+					<p>技能專長</p>
+				</div>
+				<div id="user_bottom">
+					<% @user.categories.each do |category| %>
+						<span class="label label-default"><%= category.name %></span>
+					<% end %>
+				</div>
+	    
+	    </div>
+
+	    <div role="tabpanel" class="tab-pane" id="tab2">
+				<div class="user_center">
+					
+					<% @user.projects.each do |project| %>
+						
+						<a href="<%= project_path(project) %>" class="user_link">
+							
+							<div class="user_project">
+								
+								<div class="user_project_top">
+								
+									<%= image_tag set_image_url(project, "medium") %>
+									
+									<div class="user_status">
+										<span class="label label-default"><%= project.status %></span>
+										<span class="user_project_name"><%= project.name %></span>
+									</div>
+								
+								</div>
+								
+								<p><%= truncate(project.description, :length => 25) %></p>
+								
+								<div class="user_project_time">
+									
+									<div class="user_project_startdate">
+										<p>募集截止時間</p>
+										<p><%= project.startdate %></p>
+									</div>
+									
+									<div class="user_project_deadline">
+										<p>預計完成時間</p>
+										<p><%= project.deadline %></p>
+									</div>
+								
+								</div>
+								
+								<div class="user_project_bottom">
+								
+									<%= image_tag '/position(big).png'%>
+									<% project.categories.each do |category| %>
+										<span class="label label-default"><%= category.name %></span>
+									<% end %>
+								
+								</div>
+							
+							</div>
+						</a>
+					<% end %>
+				</div>
+	    </div>
+	  </div>
+	</div>	
+</div>	
+
+
+
+
+
+
+
+
+
+
 <%= image_tag @user.logo.url(:medium) %>
 <h2><%= @user.name %></h2>
 <% @user.categories.each do |category| %>
